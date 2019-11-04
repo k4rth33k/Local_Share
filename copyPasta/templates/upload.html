@@ -1,0 +1,39 @@
+{% load static %}
+
+<head>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<center>
+		<h1>FILES</h1>
+	</center>
+
+	{% for name in data%}
+		<p style="margin-left: 10px"> <a href="/media/{{name}}" download> {{name}} </a> </p>
+	{% endfor %}
+	<div class="container">
+		<!-- <div class="row"> -->
+		  <!-- <div class="col-md-6"> -->
+		      <form method="post"  enctype="multipart/form-data">
+		      	{% csrf_token %}
+	              <div class="form-group files">
+	                <label><b>Upload Your File</b> </label>
+	                <input type="file" class="form-control" multiple="" name="myfile">
+	              </div>
+	              <button type="submit">UPLOAD</button>
+	          </form>
+		      
+	    <button onclick="location.href = 'clear/';">Clear Files</button>
+		      
+		  <!-- </div> -->
+
+		<!-- </div> -->
+	</div>
+
+	  {% if uploaded_file_url %}
+	    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+	  {% endif %}
+
+</body>

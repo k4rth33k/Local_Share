@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CopyPasta</title>
+	<style type="text/css">
+		.mydiv > pre {
+			margin: 0;
+			height: auto;
+			border: 1px solid black;
+		}
+
+		pre > p {
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<h1>LINKS</h1>
+		<br>
+	</center>
+
+		{% for k, v in data.items %}
+			<div class="mydiv">
+				<b>{{k}}th entry</b>
+				<pre>
+					{{v|linebreaks}}
+	        	</pre>
+        	</div>
+      	<div><b>------------------------</b></div>
+    	{% endfor %}
+
+    <center>
+		<form method="POST">
+			{% csrf_token %}
+			<textarea name="link"></textarea> 
+			<br>
+			<button type="submit">ADD MOFO</button>
+
+		</form>
+		<br>
+		<br>
+
+		<button onclick="location.href = 'clear/';">Clear</button>
+	</center>
+</body>
+</html>

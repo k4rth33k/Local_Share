@@ -15,7 +15,7 @@ def home(req):
 		new_link.save()
 	
 	orm_data = Links.objects.all()
-
+	print(settings.BASE_DIR) #debug
 	if len(orm_data) > 10:
 		Links.objects.filter(id_s=orm_data[0].id_s).delete()
 

@@ -57,7 +57,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            r"C:\Users\KARTHEEK\Desktop\copyPasta\copyPasta\templates"
+            os.path.join(BASE_DIR, 'copyPasta\\templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
